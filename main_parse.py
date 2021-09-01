@@ -36,7 +36,7 @@ def get_updates(urlList):
     tabula.convert_into('2.pdf', '2_3.csv', pages=3)
 
 
-if __name__ == '__main__':
+def main_parse():
     url = 'https://cs.msu.ru/studies/schedule'
     get_updates(get_urlList(url))
 
