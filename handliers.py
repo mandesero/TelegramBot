@@ -7,6 +7,9 @@ from aiogram.dispatcher.filters import Command
 from config import ADMIN_ID
 from keyboards import choice_plans, choice_timetable, mainMenu, otherMenu, choice_clean, choice_add, choice_del_tt
 
+import datetime
+import asyncio
+
 from parser import return_timetable
 from database import *
 from emodji import *
@@ -30,6 +33,15 @@ async def start_bot(message: Message):
         reply_markup=mainMenu
     )
 
+    
+@dp.message_handler(Command("update"))
+async def update_timetable(message: Message):
+    while True:
+        main_parse()
+        now = datetime.datetime.now()
+        await message.answer(text='Расписание актуально на: ' + now.strftime("%d-%m-%Y %H:%M"))
+        await asyncio.sleep(10000)
+    
 
 @dp.message_handler()
 async def choose_action(message: Message):
