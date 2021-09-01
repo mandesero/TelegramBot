@@ -10,6 +10,7 @@ from keyboards import choice_plans, choice_timetable, mainMenu, otherMenu, choic
 import datetime
 import asyncio
 
+from main_parse import main_parse
 from parser import return_timetable
 from database import *
 from emodji import *
